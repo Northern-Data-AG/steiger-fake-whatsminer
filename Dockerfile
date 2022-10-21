@@ -29,6 +29,9 @@ COPY --from=build-stage /usr/src/app/dist ./dist
 # Copy the default configuration file
 COPY config.json ./config.json
 
+# Install ping
+RUN apk update && apk add iputils 
+
 # Expose default ports
 EXPOSE 4028
 EXPOSE 80
